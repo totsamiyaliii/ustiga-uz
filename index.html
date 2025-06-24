@@ -1,80 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>USTIGA.UZ - Kiyim do'koni</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-
 <body>
   <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-
-  <header>
-    <div class="header-container">
-      <img src="./ChatGPT Image 22 июн. 2025 г., 16_16_17.png" alt="" class="logo">
-      <h1>USTIGA.UZ</h1>
-    </div>
-  </header>
-
-  <div class="products" id="productList"></div>
-
-  <div class="cart" id="cart">
-    <h2>Savat</h2>
-    <div id="cartItems"></div>
-    <button onclick="sendToTelegram()">Zakaz berish</button>
-  </div>
-
+  <header><h1>USTIGA.UZ</h1></header>
+  <div id="productList"></div>
+  <div class="cart" id="cart"><h2>Savat</h2><div id="cartItems"></div><button onclick="sendToTelegram()">Zakaz berish</button></div>
   <div class="contact-form">
     <h2>Bog‘lanish</h2>
-    <input type="text" placeholder="Ismingiz">
-    <input type="text" placeholder="Telefon raqamingiz">
-    <textarea placeholder="Xabaringiz..."></textarea>
-    <button>Yuborish</button>
+    <input type="text" id="name" placeholder="Ismingiz">
+    <input type="text" id="phone" placeholder="Telefon raqamingiz">
+    <textarea id="message" placeholder="Xabaringiz..."></textarea>
+    <button onclick="sendContact()">Yuborish</button>
   </div>
-
-  <div class="options">
-    <h3>O‘lcham va rang tanlang</h3>
-    <label for="size">O‘lcham:</label>
-    <select id="size">
-      <option value="S">S</option>
-      <option value="M">M</option>
-      <option value="L">L</option>
-      <option value="XL">XL</option>
-    </select>
-  
-    <label for="color">Rang:</label>
-    <select id="color">
-      <option value="Qora">Qora</option>
-      <option value="Oq">Oq</option>
-      <option value="Qizil">Qizil</option>
-      <option value="Kok">Haki</option>
-    </select>
-  </div>    
-
-  <footer>
-    <div class="footer-text">
-      <p>Naqshli, avtomobilga oid, va zamonaviy futbolkalar, hudilar, hammasi USTIGA.UZ’da!</p>
+  <div class="modal" id="sizeModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h3>O‘lcham va rang tanlang</h3>
+      <select id="sizeSelect">
+        <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+      </select>
+      <select id="colorSelect">
+        <option>Oq</option><option>Qora</option><option>Kok</option><option>Qizil</option>
+      </select>
+      <button onclick="confirmSelection()">Tanlash</button>
     </div>
-    <div class="social-icons">
-      <a href="https://t.me/ustigauz" target="_blank" title="Telegram">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
-      </a>
-      <a href="https://www.instagram.com/ustiga.uz/" target="_blank" title="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-      </a>
-    </div>
-  </footer>
-
-  <div id="imageModal" class="modal" onclick="closeModal()">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage">
   </div>
-
   <script src="script.js"></script>
 </body>
-
 </html>
